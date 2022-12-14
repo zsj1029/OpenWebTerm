@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title></title>
+</head>
+<body style="margin: 0; ">
+<div id="container"></div>
+</body>
+<button class="tools fullScreen" id="fullScreen">
+    全屏切换
+</button>
+<button class="tools" id="clips">
+    粘贴板
+</button>
+
+</html>
+<style>
+    html {
+        /*overflow-y: hidden;*/
+        overflow-x: hidden;
+    }
+
+    .tools {
+        display: none;
+        font-size: 11px;
+        z-index: 999;
+        position: fixed;
+        top: 70px;
+        right: 30px;
+        height: 30px;
+        width: 70px;
+    }
+
+    .fullScreen {
+        top: 30px;
+    }
+
+    /*::-webkit-scrollbar {*/
+    /*    width: 2px;*/
+    /*}*/
+
+    #vmLogin input {
+        line-height: 20px;
+    }
+</style>
+
+<script charset=utf-8 src="./js/app.min.js"></script>
+<script charset=utf-8 src="./js/utils.min.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script charset=utf-8 src="./layer/layer.js"></script>
+<script charset=utf-8 src="./js/event.js"></script>
+<script>
+    ins.render()
+    window.onerror = function (e) {
+        console.log('捕获Window异常：' + e)
+        // ins.showMessage(`错误： ${e}`)
+    }
+    window.addEventListener("unhandledrejection", function (e) {
+        // e.preventDefault()
+        console.log('捕获异常：' + e.reason)
+        ins.showMessage(`错误： ${e.reason}`)
+        return true;
+    });
+</script>
